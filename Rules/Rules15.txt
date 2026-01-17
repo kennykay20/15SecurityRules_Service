@@ -1,0 +1,20 @@
+﻿
+Here are the 15 rules to build secure and robust APIs in ASP .NET Core:
+1. - Enforce HTTPS using middleware and redirect all HTTP traffic
+2. - Secure endpoints with [Authorize] and JWT authentication
+3. - Validate JWT tokens including issuer, audience, and expiry
+4. - Use role-based, policy-based, claim-based, or custom authorization instead of hardcoded values
+5. - Apply strict input validation on all incoming models
+6. - Use DTOs to prevent over-posting and data injection
+7. - Configure CORS to allow only trusted origins and methods
+8. - Suppress detailed error messages in production 
+9. - Implement rate limiting to block brute-force and abuse
+10. - Avoid logging tokens, passwords, and sensitive user data
+11. - Add security headers like HSTS and X-Content-Type-Options
+12. - Regularly update NuGet packages to fix known vulnerabilities
+13. - Set cookies with HttpOnly, Secure, and SameSite attributes
+14. - Remove unused endpoints and unnecessary controllers
+15. - Use strong password policies if handling users.
+
+
+
