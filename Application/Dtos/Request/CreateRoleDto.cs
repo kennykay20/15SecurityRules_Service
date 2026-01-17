@@ -7,6 +7,7 @@ namespace _15SecurityRulesAPI.Application.Dtos.Request
         [Required]
         [StringLength(50, MinimumLength = 2)]
         public string RoleName { get; set; }
+        public string Description { get; set; }
     }
 
     public class AssignRoleDto
