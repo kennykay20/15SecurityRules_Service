@@ -326,7 +326,11 @@ try
 
     app.Run();
 }
-catch(Exception ex)
+catch (Exception ex)
 {
-
+    Log.Fatal(ex, "Application start-up failed");
+}
+finally
+{
+    Log.CloseAndFlush();
 }
