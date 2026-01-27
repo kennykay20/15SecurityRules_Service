@@ -22,7 +22,7 @@ namespace _15SecurityRulesAPI.Controllers
             _instanceMgtSvc = instanceMgtSvc;
         }
 
-        [HttpGet]
+        [HttpGet("getAll")]
         [Authorize(Policy = "UserOrAdmin")]
         public async Task<IActionResult> GetAll()
         {
@@ -53,7 +53,7 @@ namespace _15SecurityRulesAPI.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("getById/{id}")]
         [Authorize(Policy = "UserOrAdmin")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -83,7 +83,7 @@ namespace _15SecurityRulesAPI.Controllers
         }
 
         // Rule 4 & 5: Authorization + Input validation
-        [HttpPost]
+        [HttpPost("create")]
         [Authorize(Policy = "AdminOnly")]
         public async Task<IActionResult> Create([FromBody] ProductCreateDto request)
         { 

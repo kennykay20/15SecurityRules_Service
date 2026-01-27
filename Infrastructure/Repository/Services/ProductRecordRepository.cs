@@ -17,10 +17,11 @@ namespace _15SecurityRulesAPI.Infrastructure.Repository.Services
         {
             var product = new Product
             {
+                Id = 1,
                 Name = dto.Name ?? "",
                 Price = Decimal.Parse(dto.Price.ToString()!),
                 Description = dto.Description ?? "",
-                DateCreated = DateTime.Now,
+                DateCreated = DateTime.UtcNow,
             };
 
             _dbContext.Products.Add(product);

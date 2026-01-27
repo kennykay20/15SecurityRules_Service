@@ -201,7 +201,7 @@ try
     {
         options.AddPolicy("TrustedOrigins", policy =>
         {
-            policy.WithOrigins("https://localhost:7035", "http://localhost:5130")
+            policy.WithOrigins("https://localhost:7035", "http://localhost:5130", "http://localhost:4200")
                   .AllowAnyMethod()
                   .AllowAnyHeader()
                   .AllowCredentials();
