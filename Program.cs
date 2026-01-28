@@ -291,17 +291,25 @@ try
         await next();
     });
 
-    // Swagger (only in development)
-    if (app.Environment.IsDevelopment())
+    //// Swagger (only in development)
+    //if (app.Environment.IsDevelopment())
+    //{
+    //    app.UseSwagger();
+    //    app.UseSwaggerUI(options =>
+    //    {
+    //        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    //        options.DisplayRequestDuration();
+    //        options.EnableTryItOutByDefault();
+    //    });
+    //}
+
+    // Swagger — visible in all environments
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
     {
-        app.UseSwagger();
-        app.UseSwaggerUI(options =>
-        {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-            options.DisplayRequestDuration();
-            options.EnableTryItOutByDefault();
-        });
-    }
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        options.RoutePrefix = string.Empty; // Swagger UI at root: https://15securityrulesapi.azurewebsites.net/
+    });
 
     // Rule 9: Rate limiting
     app.UseIpRateLimiting();
@@ -318,6 +326,9 @@ try
     app.UseSerilogRequestLogging();
 
     app.MapControllers();
+
+    // Health check endpoint
+    app.MapGet("/health", () => Results.Ok("API is running 🚀"));
 
     //app.UseMiddleware<AuthMiddleware>();
 
